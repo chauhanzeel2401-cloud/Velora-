@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora - Simple Payment dApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Velora</h1>
+            <p>Simple Stellar Testnet Payment App</p>
+        </header>
+
+        <!-- Wallet Connection Section -->
+        <div class="wallet-section">
+            <button id="connectBtn" class="btn btn-primary">Connect Wallet</button>
+            <button id="disconnectBtn" class="btn btn-secondary" style="display: none;">Disconnect</button>
+            <div id="walletInfo" style="display: none;">
+                <p><strong>Connected Wallet:</strong></p>
+                <p id="publicKey" class="public-key"></p>
+            </div>
+        </div>
+
+        <!-- Balance Section -->
+        <div id="balanceSection" class="balance-section" style="display: none;">
+            <h2>Your Balance</h2>
+            <p class="balance" id="balance">0 XLM</p>
+            <button id="refreshBtn" class="btn btn-small">Refresh Balance</button>
+        </div>
+
+        <!-- Send Payment Section -->
+        <div id="paymentSection" class="payment-section" style="display: none;">
+            <h2>Send XLM</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="recipient">Recipient Address:</label>
+                    <input 
+                        type="text" 
+                        id="recipient" 
+                        placeholder="G..." 
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount (XLM):</label>
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        placeholder="0.00" 
+                        step="0.01" 
+                        min="0.01"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn btn-primary">Send Payment</button>
+            </form>
+        </div>
+
+        <!-- Transaction Result Section -->
+        <div id="resultSection" class="result-section" style="display: none;">
+            <div id="resultMessage"></div>
+        </div>
+
+        <!-- Transaction History Section -->
+        <div id="historySection" class="history-section" style="display: none;">
+            <div class="history-header">
+                <h2>Transaction History</h2>
+                <button id="refreshHistoryBtn" class="btn btn-small">↻ Refresh</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <p class="history-empty">No transactions found.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stellar SDK from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/11.2.2/stellar-sdk.min.js"></script>
+
+    <!-- Freighter API - local file (real bundle fetched from unpkg) -->
+    <script src="freighter-api.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>

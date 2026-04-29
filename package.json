@@ -1,0 +1,14 @@
+{
+  "name": "velora",
+  "version": "1.0.0",
+  "description": "Simple Stellar testnet payment dApp",
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "build": "node build.js",
+    "start": "npx serve . -p 8000"
+  },
+  "dependencies": {
+    "@stellar/freighter-api": "^2.0.0",
+    "serve": "^14.2.6"
+  }
+}
