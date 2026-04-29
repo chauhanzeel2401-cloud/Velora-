@@ -1,4 +1,4 @@
-# 💫 Velora
+# Velora
 
 🌐 **Live App**: [https://velora-stellar-testnet-payment-app.netlify.app](https://velora-stellar-testnet-payment-app.netlify.app)
 
